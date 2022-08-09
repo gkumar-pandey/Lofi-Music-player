@@ -4,6 +4,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #04293a;
+  /* background-color: #04293a; */
   color: #fff;
+}
+
+.container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }
