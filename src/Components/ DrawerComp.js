@@ -1,21 +1,32 @@
 import React from "react";
 import { useState } from "react";
-import { Drawer, ListItemText } from "@mui/material";
+import {
+  Drawer,
+  ListItemText,
+  IconButton,
+  Icon,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { List, ListItem } from "@mui/material";
-import { Link } from "@mui/material";
+import QueueMusicIcon from "@mui/icons-material/QueueMusic";
+
 import data from "../Assets/Data/Data";
-import { width } from "@mui/system";
 
 function DrawerComp() {
   const [openDrawer, setOpenDrawer] = useState(true);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const drawerWidth = isMobile ? "80%" : "30%";
   return (
     <div>
       <Drawer
         anchor="left"
-        open={true}
+        open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         sx={{ width: "500px" }}
-        PaperProps={{ sx: { width: "30%", backgroundColor: "black" } }}
+        PaperProps={{ sx: { width: drawerWidth, backgroundColor: "black" } }}
       >
         <List>
           {data.map((item, idx) => {
@@ -26,7 +37,6 @@ function DrawerComp() {
                     <img style={coustemStyle.img} src={item.img} />
                     <div>
                       <h4>{item.name}</h4>
-                      <p>{item.desc}</p>
                     </div>
                   </div>
                 </ListItemText>
@@ -35,13 +45,16 @@ function DrawerComp() {
           })}
         </List>
       </Drawer>
+      <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
+        <QueueMusicIcon sx={{ fontSize: "2.2rem" }} />
+      </IconButton>
     </div>
   );
 }
 
 const coustemStyle = {
   container: {
-    border: "1px solid red",
+    // border: "1px solid red",
     height: "80px",
     display: "flex",
     alignItems: "center",
