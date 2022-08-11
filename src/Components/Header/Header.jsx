@@ -1,11 +1,11 @@
 import React from "react";
 import DrawerComp from "../ DrawerComp";
 
-function Header() {
+function Header({ setCurrSong, clickHandler,setIsPlaying }) {
   return (
     <div>
       <nav className="nav-bar" style={style.navBar}>
-        <DrawerComp />
+        <DrawerComp setCurrSong={setCurrSong} clickHandler={clickHandler} setIsPlaying={setIsPlaying} />
         <h1 style={style.logo}>Lofi Music Player</h1>
       </nav>
     </div>
@@ -14,10 +14,8 @@ function Header() {
 
 const style = {
   navBar: {
-    
     display: "flex",
     padding: "1rem",
-
     fontFamily: "DynaPuff, cursive",
     fontSize: "1.4rem",
   },

@@ -4,17 +4,15 @@ import {
   Drawer,
   ListItemText,
   IconButton,
-  Icon,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { List, ListItem } from "@mui/material";
 import QueueMusicIcon from "@mui/icons-material/QueueMusic";
+import { data } from "../Pages/Home/Home";
 
-import data from "../Assets/Data/Data";
-
-function DrawerComp() {
-  const [openDrawer, setOpenDrawer] = useState(true);
+function DrawerComp({ setCurrSong, clickHandler, setIsPlaying }) {
+  const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -29,13 +27,26 @@ function DrawerComp() {
         PaperProps={{ sx: { width: drawerWidth, backgroundColor: "black" } }}
       >
         <List>
+          <ListItem>
+            <ListItemText className="playlist">
+              <h1>PlayList</h1>
+            </ListItemText>
+          </ListItem>
           {data.map((item, idx) => {
             return (
-              <ListItem>
+              <ListItem
+                key={idx}
+                onClick={() => {
+                  setCurrSong(item);
+                  clickHandler();
+                  setOpenDrawer(false);
+                  setIsPlaying(true);
+                }}
+              >
                 <ListItemText>
                   <div style={coustemStyle.container}>
                     <img style={coustemStyle.img} src={item.img} />
-                    <div>
+                    <div style={coustemStyle.text}>
                       <h4>{item.name}</h4>
                     </div>
                   </div>
@@ -62,6 +73,14 @@ const coustemStyle = {
   img: {
     height: "80px",
     width: "80px",
+    borderRadius: "5px",
+  },
+  text: {
+    // border: '1px solid red',
+    height: "100%",
+    width: "100%",
+    padding: "8px 10px",
+    fontSize: "1.3rem",
   },
 };
 

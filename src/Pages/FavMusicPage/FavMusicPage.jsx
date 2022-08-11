@@ -1,8 +1,13 @@
 import React from 'react'
 
 function FavMusicPage() {
+  const favMusicList = [
+    
+  ]
   return (
-    <div>FavMusicPage</div>
+    <div>
+
+    </div>
   )
 }
 

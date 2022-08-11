@@ -18,3 +18,13 @@
 audio {
   display: none;
 }
+.playlist {
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+
+}
+.playlist h1{
+  /* border: 1px solid red; */
+  font-family: sans-serif;
+}

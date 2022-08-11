@@ -2,7 +2,6 @@ import "./App.css";
 import Home from "./Pages/Home/Home";
 import { CssBaseline } from "@mui/material";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import data from "./Assets/Data/Data";
 function App() {
   const theme = createTheme({
     palette: {
@@ -11,7 +10,6 @@ function App() {
       },
     },
   });
-  console.log(theme);
   return (
     <>
       <ThemeProvider theme={theme}>
