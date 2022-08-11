@@ -10,7 +10,7 @@ import pee_loon from "../../Assets/Music/Pee-loon.mpeg";
 import arcade from "../../Assets/Music/Arcade.mpeg";
 import tumse_hi from "../../Assets/Music/Tumse-hi.mpeg";
 import mast_magan from "../../Assets/Music/Mast-Magan.mpeg";
-
+import ContinuousSlider from "../../Components/ VolumeComp";
 export const data = [
   {
     id: 1,
@@ -106,11 +106,15 @@ function Home() {
 
   return (
     <div>
-      <Header setCurrSong={setCurrSong} clickHandler={clickHandler} setIsPlaying={setIsPlaying} />
+      <Header
+        setCurrSong={setCurrSong}
+        clickHandler={clickHandler}
+        setIsPlaying={setIsPlaying}
+      />
       <div style={customStyle.container}>
         <SongImg img={currSong.img} />
         <SongDetails songName={currSong.name} songDisc={currSong.desc} />
-
+        <ContinuousSlider audioRef={audioRef} />
         <PlayControls
           isPlaying={isPlaying}
           clickHandler={clickHandler}
