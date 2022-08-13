@@ -28,8 +28,8 @@ function DrawerComp({ setCurrSong, clickHandler, setIsPlaying }) {
       >
         <List>
           <ListItem>
-            <ListItemText className="playlist">
-              <h1>PlayList</h1>
+            <ListItemText >
+              <h1 style={coustemStyle.playlist}>PlayList</h1>
             </ListItemText>
           </ListItem>
           {data.map((item, idx) => {
@@ -81,6 +81,12 @@ const coustemStyle = {
     width: "100%",
     padding: "8px 10px",
     fontSize: "1.3rem",
+  },
+  playlist: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "DynaPuff, cursive",
   },
 };
 

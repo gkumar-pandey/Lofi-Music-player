@@ -11,6 +11,7 @@ import arcade from "../../Assets/Music/Arcade.mpeg";
 import tumse_hi from "../../Assets/Music/Tumse-hi.mpeg";
 import mast_magan from "../../Assets/Music/Mast-Magan.mpeg";
 import ContinuousSlider from "../../Components/ VolumeComp";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 export const data = [
   {
     id: 1,
@@ -67,7 +68,7 @@ export const data = [
 function Home() {
   const [currSong, setCurrSong] = useState(data[0]);
   const audioRef = useRef(new Audio(currSong.song));
-  const [isPlaying, setIsPlaying] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const playNextSong = (id) => {
     if (id <= data.length - 1) {
